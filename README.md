@@ -5,5 +5,5 @@ Proyecto para la cátedra Base De Datos I.
 * **[Aguirre Mauricio Alejandro](https://github.com/Diosito00)**
 * **[Iturrieta Waldemar](https://github.com/raftontheshore)**
 * **Panzich Luca Santiago**
-* **Pawlizki, Micaela Nataly**
+* **Pawlizki Micaela Nataly**
 * **[Sanchez Rodriguez Enzo Nahuel](https://github.com/enzo2304)**
