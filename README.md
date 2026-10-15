@@ -10,7 +10,8 @@
   <a href="docs/etapa-01/"><img alt="Etapa 01" src="https://img.shields.io/badge/ETAPA_01-REQUERIMIENTOS-3B82F6?style=for-the-badge"></a>
   <a href="docs/etapa-02/"><img alt="Etapa 02" src="https://img.shields.io/badge/ETAPA_02-MODELADO-8B5CF6?style=for-the-badge"></a>
   <a href="docs/etapa-03/"><img alt="Etapa 03" src="https://img.shields.io/badge/ETAPA_03-IMPLEMENTACI%C3%93N-22C55E?style=for-the-badge"></a>
-  <a href="docs/etapa-04/"><img alt="Etapa 04" src="https://img.shields.io/badge/ETAPA_04-EN_CURSO-F59E0B?style=for-the-badge"></a>
+  <a href="docs/etapa-04/"><img alt="Etapa 04" src="https://img.shields.io/badge/ETAPA_04-CONSULTAS-F59E0B?style=for-the-badge"></a>
+  <a href="docs/etapa-05/"><img alt="Etapa 05" src="https://img.shields.io/badge/ETAPA_05-OBJETOS_T%C3%89CNICOS-6B7280?style=for-the-badge"></a>
 </p>
 
 | Etapa | Tema | Estado |
@@ -18,7 +19,8 @@
 | [01](docs/etapa-01/) | Requerimientos y dominio del negocio | ✅ Completa |
 | [02](docs/etapa-02/) | Modelado conceptual y lógico | ✅ Completa |
 | [03](docs/etapa-03/) | Implementación física y validación | ✅ Completa |
-| [04](docs/etapa-04/) | <!-- En progreso: completar el tema de la Etapa 04 --> | 🚧 En curso |
+| [04](docs/etapa-04/) | Casos de uso, comprobante, informe y consulta avanzada | 🚧 En curso |
+| [05](docs/etapa-05/) | Procedimientos, transacciones, triggers, seguridad e índices | ⏳ Pendiente |
 
 ---
 
@@ -62,7 +64,7 @@ El detalle completo está en [`alcance.md`](docs/etapa-01/alcance.md).
 
 La base de datos `RetroGames` (SQL Server) está normalizada hasta 3FN y se compone de 8 tablas.
 
-![Diagrama Entidad-Relación](modelos/DER.png)
+![Diagrama Entidad-Relación](docs/etapa-02/der/der.png)
 
 | Tabla | Descripción |
 | :--- | :--- |
@@ -118,10 +120,10 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 
 | Documento | Descripción |
 | :--- | :--- |
+| [`der.png`](docs/etapa-02/der/der.png) | Diagrama Entidad-Relación. |
 | [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) | Entidades, atributos, claves y cardinalidades del modelo relacional. |
 | [`normalizacion.md`](docs/etapa-02/normalizacion.md) | Proceso de normalización hasta 3FN. |
-| [`decisiones-diseño.md`](docs/etapa-02/decisiones-dise%C3%B1o.md) | Decisiones tomadas durante el diseño del modelo. |
-| [`DER.png`](modelos/DER.png) | Diagrama Entidad-Relación. |
+| [`decisiones-diseno.md`](docs/etapa-02/decisiones-diseno.md) | Decisiones tomadas durante el diseño del modelo. |
 
 ### Etapa 03 — Implementación física y validación
 
@@ -132,16 +134,31 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | [`implementacion.md`](docs/etapa-03/implementacion.md) | Decisiones técnicas de la implementación en SQL Server. |
 | [`restricciones-integridad.md`](docs/etapa-03/restricciones-integridad.md) | Restricciones y mecanismos de integridad de la base de datos. |
 | [`pruebas-validacion.md`](docs/etapa-03/pruebas-validacion.md) | Pruebas y validaciones realizadas sobre la implementación. |
-| [`crear_bd.sql`](sql/crear_bd.sql) | Script DDL: crea la base de datos, las tablas, restricciones e índices. |
-| [`datos_prueba.sql`](sql/datos_prueba.sql) | Script DML: carga de datos de prueba. |
+| [`crear_bd.sql`](sql/ddl/crear_bd.sql) | Script DDL: crea la base de datos, las tablas, restricciones e índices. |
+| [`datos_prueba.sql`](sql/dml/datos_prueba.sql) | Script DML: carga de datos de prueba. |
 
-### Etapa 04 — En curso
+### Etapa 04 — Consultas y reportes (en curso)
 
 [![Ir a la Etapa 04](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--04-F59E0B?style=flat-square)](docs/etapa-04/)
 
 | Documento | Descripción |
 | :--- | :--- |
-| _Próximamente_ | La documentación de esta etapa se agregará a medida que avance el trabajo. |
+| [`casos-uso.md`](docs/etapa-04/casos-uso.md) | Casos de uso que dan origen a las consultas. |
+| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Documentación del comprobante de venta. Script: [`comprobante_venta.sql`](sql/consultas/comprobante_venta.sql). |
+| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Documentación del informe de ventas. Script: [`informe_ventas.sql`](sql/consultas/informe_ventas.sql). |
+| [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Documentación de la consulta avanzada. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
+
+### Etapa 05 — Objetos técnicos, seguridad y optimización (pendiente)
+
+[![Ir a la Etapa 05](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--05-6B7280?style=flat-square)](docs/etapa-05/)
+
+| Documento | Descripción |
+| :--- | :--- |
+| [`procedimientos-funciones.md`](docs/etapa-05/procedimientos-funciones.md) | Procedimientos almacenados y funciones. Scripts en [`procedimientos/`](sql/tecnico/procedimientos/) y [`funciones/`](sql/tecnico/funciones/). |
+| [`transacciones.md`](docs/etapa-05/transacciones.md) | Manejo de transacciones. Scripts en [`transacciones/`](sql/tecnico/transacciones/). |
+| [`triggers-auditoria.md`](docs/etapa-05/triggers-auditoria.md) | Triggers y auditoría. Scripts en [`triggers/`](sql/tecnico/triggers/). |
+| [`seguridad.md`](docs/etapa-05/seguridad.md) | Seguridad y permisos. Scripts en [`seguridad/`](sql/tecnico/seguridad/). |
+| [`indices-optimizacion.md`](docs/etapa-05/indices-optimizacion.md) | Índices y optimización. Scripts en [`indices/`](sql/tecnico/indices/). |
 
 ---
 
@@ -159,24 +176,50 @@ proyecto-bd1-equipo_22/
 │   │   └── decisiones-diseno.md
 │   │
 │   ├── etapa-02/
-│   │   ├── decisiones-diseño.md
+│   │   ├── der/
+│   │   │   └── der.png
 │   │   ├── modelo-relacional.md
-│   │   └── normalizacion.md
+│   │   ├── normalizacion.md
+│   │   └── decisiones-diseno.md
 │   │
 │   ├── etapa-03/
 │   │   ├── implementacion.md
 │   │   ├── restricciones-integridad.md
 │   │   └── pruebas-validacion.md
 │   │
-│   └── etapa-04/
-│       └── .gitkeep
-│
-├── modelos/
-│   └── DER.png
+│   ├── etapa-04/
+│   │   ├── casos-uso.md
+│   │   ├── comprobante-venta.md
+│   │   ├── informe-ventas.md
+│   │   └── consulta-avanzada.md
+│   │
+│   └── etapa-05/
+│       ├── procedimientos-funciones.md
+│       ├── transacciones.md
+│       ├── triggers-auditoria.md
+│       ├── seguridad.md
+│       └── indices-optimizacion.md
 │
 ├── sql/
-│   ├── crear_bd.sql
-│   └── datos_prueba.sql
+│   │
+│   ├── ddl/
+│   │   └── crear_bd.sql
+│   │
+│   ├── dml/
+│   │   └── datos_prueba.sql
+│   │
+│   ├── consultas/
+│   │   ├── comprobante_venta.sql
+│   │   ├── informe_ventas.sql
+│   │   └── consulta_avanzada.sql
+│   │
+│   └── tecnico/
+│       ├── procedimientos/
+│       ├── funciones/
+│       ├── transacciones/
+│       ├── triggers/
+│       ├── seguridad/
+│       └── indices/
 │
 └── README.md
 ```
@@ -187,10 +230,11 @@ proyecto-bd1-equipo_22/
 
 Requiere **SQL Server 2016 o superior**.
 
-1. Ejecutar [`sql/crear_bd.sql`](sql/crear_bd.sql): crea la base `RetroGames` con sus 8 tablas, restricciones e índices.
-2. Ejecutar [`sql/datos_prueba.sql`](sql/datos_prueba.sql): carga los datos de prueba.
+1. Ejecutar [`sql/ddl/crear_bd.sql`](sql/ddl/crear_bd.sql): crea la base `RetroGames` con sus 8 tablas, restricciones e índices.
+2. Ejecutar [`sql/dml/datos_prueba.sql`](sql/dml/datos_prueba.sql): carga los datos de prueba.
+3. Ejecutar los scripts de [`sql/consultas/`](sql/consultas/) y, más adelante, los de [`sql/tecnico/`](sql/tecnico/).
 
-> **Atención:** ambos scripts borran los datos existentes y están pensados para un entorno de pruebas.
+> **Atención:** los scripts de las carpetas `ddl/` y `dml/` borran los datos existentes y están pensados para un entorno de pruebas.
 
 ---
 
