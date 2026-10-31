@@ -2,7 +2,7 @@
 
 ![Cátedra](https://img.shields.io/badge/C%C3%A1tedra-Base_de_Datos_I-555555?style=flat-square)
 ![Motor](https://img.shields.io/badge/SQL_Server-T--SQL-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white)
-![Estado](https://img.shields.io/badge/Estado-Etapa_04_en_curso-F59E0B?style=flat-square)
+![Estado](https://img.shields.io/badge/Estado-Etapas_01_a_05_completas-22C55E?style=flat-square)
 
 **Retro Games** es un sistema de gestión para una tienda de videojuegos retro, consolas y accesorios de colección. Este repositorio reúne la documentación y los scripts SQL desarrollados para la cátedra Base de Datos I.
 
@@ -10,8 +10,8 @@
   <a href="docs/etapa-01/"><img alt="Etapa 01" src="https://img.shields.io/badge/ETAPA_01-REQUERIMIENTOS-3B82F6?style=for-the-badge"></a>
   <a href="docs/etapa-02/"><img alt="Etapa 02" src="https://img.shields.io/badge/ETAPA_02-MODELADO-8B5CF6?style=for-the-badge"></a>
   <a href="docs/etapa-03/"><img alt="Etapa 03" src="https://img.shields.io/badge/ETAPA_03-IMPLEMENTACI%C3%93N-22C55E?style=for-the-badge"></a>
-  <a href="docs/etapa-04/"><img alt="Etapa 04" src="https://img.shields.io/badge/ETAPA_04-CONSULTAS-F59E0B?style=for-the-badge"></a>
-  <a href="docs/etapa-05/"><img alt="Etapa 05" src="https://img.shields.io/badge/ETAPA_05-OBJETOS_T%C3%89CNICOS-6B7280?style=for-the-badge"></a>
+  <a href="docs/etapa-04/"><img alt="Etapa 04" src="https://img.shields.io/badge/ETAPA_04-CONSULTAS-0EA5E9?style=for-the-badge"></a>
+  <a href="docs/etapa-05/"><img alt="Etapa 05" src="https://img.shields.io/badge/ETAPA_05-TEMAS_T%C3%89CNICOS-EC4899?style=for-the-badge"></a>
 </p>
 
 | Etapa | Tema | Estado |
@@ -19,8 +19,8 @@
 | [01](docs/etapa-01/) | Requerimientos y dominio del negocio | ✅ Completa |
 | [02](docs/etapa-02/) | Modelado conceptual y lógico | ✅ Completa |
 | [03](docs/etapa-03/) | Implementación física y validación | ✅ Completa |
-| [04](docs/etapa-04/) | Casos de uso, comprobante, informe y consulta avanzada | 🚧 En curso |
-| [05](docs/etapa-05/) | Procedimientos, transacciones, triggers, seguridad e índices | ⏳ Pendiente |
+| [04](docs/etapa-04/) | Consultas y casos de uso | ✅ Completa |
+| [05](docs/etapa-05/) | Temas técnicos: procedimientos, transacciones, triggers, seguridad y optimización | ✅ Completa |
 
 ---
 
@@ -137,28 +137,30 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | [`crear_bd.sql`](sql/ddl/crear_bd.sql) | Script DDL: crea la base de datos, las tablas, restricciones e índices. |
 | [`datos_prueba.sql`](sql/dml/datos_prueba.sql) | Script DML: carga de datos de prueba. |
 
-### Etapa 04 — Consultas y reportes (en curso)
+### Etapa 04 — Consultas y casos de uso
 
-[![Ir a la Etapa 04](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--04-F59E0B?style=flat-square)](docs/etapa-04/)
+[![Ir a la Etapa 04](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--04-0EA5E9?style=flat-square)](docs/etapa-04/)
 
 | Documento | Descripción |
 | :--- | :--- |
 | [`casos-uso.md`](docs/etapa-04/casos-uso.md) | Casos de uso que dan origen a las consultas. |
-| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Documentación del comprobante de venta. Script: [`comprobante_venta.sql`](sql/consultas/comprobante_venta.sql). |
-| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Documentación del informe de ventas. Script: [`informe_ventas.sql`](sql/consultas/informe_ventas.sql). |
-| [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Documentación de la consulta avanzada. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
+| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`comprobante_venta.sql`](sql/consultas/comprobante_venta.sql). |
+| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe_ventas.sql`](sql/consultas/informe_ventas.sql). |
+| [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Clientes de alto valor: gasto superior al promedio, con `JOIN` de 7 tablas, `HAVING` y subconsulta. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
 
-### Etapa 05 — Objetos técnicos, seguridad y optimización (pendiente)
+### Etapa 05 — Temas técnicos
 
-[![Ir a la Etapa 05](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--05-6B7280?style=flat-square)](docs/etapa-05/)
+[![Ir a la Etapa 05](https://img.shields.io/badge/Ir_a_la_carpeta-docs%2Fetapa--05-EC4899?style=flat-square)](docs/etapa-05/)
 
-| Documento | Descripción |
-| :--- | :--- |
-| [`procedimientos-funciones.md`](docs/etapa-05/procedimientos-funciones.md) | Procedimientos almacenados y funciones. Scripts en [`procedimientos/`](sql/tecnico/procedimientos/) y [`funciones/`](sql/tecnico/funciones/). |
-| [`transacciones.md`](docs/etapa-05/transacciones.md) | Manejo de transacciones. Scripts en [`transacciones/`](sql/tecnico/transacciones/). |
-| [`triggers-auditoria.md`](docs/etapa-05/triggers-auditoria.md) | Triggers y auditoría. Scripts en [`triggers/`](sql/tecnico/triggers/). |
-| [`seguridad.md`](docs/etapa-05/seguridad.md) | Seguridad y permisos. Scripts en [`seguridad/`](sql/tecnico/seguridad/). |
-| [`indices-optimizacion.md`](docs/etapa-05/indices-optimizacion.md) | Índices y optimización. Scripts en [`indices/`](sql/tecnico/indices/). |
+Cada tema tiene su carpeta con la investigación, el script de demostración y las capturas de la ejecución (`evidencias/`).
+
+| Tema | Qué se implementa | Investigación | Scripts | Evidencias |
+| :--- | :--- | :--- | :--- | :--- |
+| Procedimientos y funciones | Funciones y procedimientos de catálogo y de registro de ventas. | [`funciones_investigacion.md`](docs/etapa-05/procedimientos_funciones/funciones_investigacion.md) | [`funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/funciones_scripts.sql) | [`evidencias/`](docs/etapa-05/procedimientos_funciones/evidencias/) |
+| Transacciones | Registro de venta atómico (`COMMIT` / `ROLLBACK`) y transacciones anidadas. | [`transacciones_investigacion.md`](docs/etapa-05/transacciones/transacciones_investigacion.md) | [`transacciones_scripts.sql`](docs/etapa-05/transacciones/transacciones_scripts.sql) | [`evidencias/`](docs/etapa-05/transacciones/evidencias/) |
+| Triggers de auditoría | Auditoría de `UPDATE` y `DELETE` sobre `productos` y bloqueo de `DELETE` sobre `pago`. | [`triggers_investigacion.md`](docs/etapa-05/triggers_auditoria/triggers_investigacion.md) | [`triggers_scripts.sql`](docs/etapa-05/triggers_auditoria/triggers_scripts.sql) | [`evidencias/`](docs/etapa-05/triggers_auditoria/evidencias/) |
+| Seguridad | Logins, usuarios y roles con permisos mínimos. | [`seguridad_investigacion.md`](docs/etapa-05/seguridad/seguridad_investigacion.md) | [`seguridad_scripts.sql`](docs/etapa-05/seguridad/seguridad_scripts.sql) | [`evidencias/`](docs/etapa-05/seguridad/evidencias/) |
+| Optimización | Experimento de índices con 1.000.000 de filas e índices permanentes del esquema. | [`optimizacion_investigacion.md`](docs/etapa-05/optimizacion/optimizacion_investigacion.md) | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion/optimizacion_scripts.sql) | [`evidencias/`](docs/etapa-05/optimizacion/evidencias/) |
 
 ---
 
@@ -194,11 +196,26 @@ proyecto-bd1-equipo_22/
 │   │   └── consulta-avanzada.md
 │   │
 │   └── etapa-05/
-│       ├── procedimientos-funciones.md
-│       ├── transacciones.md
-│       ├── triggers-auditoria.md
-│       ├── seguridad.md
-│       └── indices-optimizacion.md
+│       ├── procedimientos_funciones/
+│       │   ├── funciones_investigacion.md
+│       │   ├── funciones_scripts.sql
+│       │   └── evidencias/
+│       ├── transacciones/
+│       │   ├── transacciones_investigacion.md
+│       │   ├── transacciones_scripts.sql
+│       │   └── evidencias/
+│       ├── triggers_auditoria/
+│       │   ├── triggers_investigacion.md
+│       │   ├── triggers_scripts.sql
+│       │   └── evidencias/
+│       ├── seguridad/
+│       │   ├── seguridad_investigacion.md
+│       │   ├── seguridad_scripts.sql
+│       │   └── evidencias/
+│       └── optimizacion/
+│           ├── optimizacion_investigacion.md
+│           ├── optimizacion_scripts.sql
+│           └── evidencias/
 │
 ├── sql/
 │   │
@@ -208,33 +225,34 @@ proyecto-bd1-equipo_22/
 │   ├── dml/
 │   │   └── datos_prueba.sql
 │   │
-│   ├── consultas/
-│   │   ├── comprobante_venta.sql
-│   │   ├── informe_ventas.sql
-│   │   └── consulta_avanzada.sql
-│   │
-│   └── tecnico/
-│       ├── procedimientos/
-│       ├── funciones/
-│       ├── transacciones/
-│       ├── triggers/
-│       ├── seguridad/
-│       └── indices/
+│   └── consultas/
+│       ├── comprobante_venta.sql
+│       ├── informe_ventas.sql
+│       └── consulta_avanzada.sql
 │
 └── README.md
 ```
 
 ---
 
-## ![08](https://img.shields.io/badge/08-555555?style=flat-square)![EJECUCI%C3%93N](https://img.shields.io/badge/EJECUCI%C3%93N-14B8A6?style=flat-square) Ejecución de los scripts
+## ![08](https://img.shields.io/badge/08-555555?style=flat-square)![EJECUCI%C3%93N](https://img.shields.io/badge/EJECUCI%C3%93N-14B8A6?style=flat-square) Orden de ejecución de los scripts
 
-Requiere **SQL Server 2016 o superior**.
+Requiere **SQL Server 2016 SP1 o superior** (por `CREATE OR ALTER` y `DROP ... IF EXISTS`). Ejecutar en este orden sobre una base de pruebas:
 
-1. Ejecutar [`sql/ddl/crear_bd.sql`](sql/ddl/crear_bd.sql): crea la base `RetroGames` con sus 8 tablas, restricciones e índices.
-2. Ejecutar [`sql/dml/datos_prueba.sql`](sql/dml/datos_prueba.sql): carga los datos de prueba.
-3. Ejecutar los scripts de [`sql/consultas/`](sql/consultas/) y, más adelante, los de [`sql/tecnico/`](sql/tecnico/).
+| Orden | Script | Nota |
+| :---: | :--- | :--- |
+| 1 | [`sql/ddl/crear_bd.sql`](sql/ddl/crear_bd.sql) | Crea la base `RetroGames` con sus 8 tablas, restricciones e índices. |
+| 2 | [`sql/dml/datos_prueba.sql`](sql/dml/datos_prueba.sql) | Carga los datos de prueba. |
+| 3 | [`sql/consultas/`](sql/consultas/) | Consultas de la Etapa 04 (comprobante, informe y consulta avanzada). |
+| 4 | [`triggers_scripts.sql`](docs/etapa-05/triggers_auditoria/triggers_scripts.sql) | Crea la tabla de auditoría y los triggers. Conviene ejecutarlo sobre los datos recién cargados, porque sus resultados esperados parten de ellos. |
+| 5 | [`funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/funciones_scripts.sql) | Crea funciones y procedimientos, entre ellos `sp_InsertarProducto`. |
+| 6 | [`transacciones_scripts.sql`](docs/etapa-05/transacciones/transacciones_scripts.sql) | Crea `sp_RegistrarVentaTransaccional` y ejecuta las pruebas. |
+| 7 | [`seguridad_scripts.sql`](docs/etapa-05/seguridad/seguridad_scripts.sql) | Requiere el paso 5 (permiso de ejecución sobre `sp_InsertarProducto`) y el motor en modo mixto. |
+| 8 | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion/optimizacion_scripts.sql) | Ejecutar al final: usa la tabla de auditoría del paso 4 y redefine con cobertura los índices creados en el paso 1. |
 
-> **Atención:** los scripts de las carpetas `ddl/` y `dml/` borran los datos existentes y están pensados para un entorno de pruebas.
+> **Atención:**
+> - Los scripts borran o modifican datos y están pensados para un entorno de pruebas. Para volver al estado inicial, repetir los pasos 1 y 2.
+> - Con el trigger que bloquea el `DELETE` sobre `pago` instalado, `datos_prueba.sql` por sí solo falla. Para recargar los datos hay que ejecutar antes `crear_bd.sql`.
 
 ---
 
