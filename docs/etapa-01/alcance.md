@@ -9,8 +9,6 @@
 - Carrito de compras y proceso de checkout con validación de datos.
 - Registro y control de ventas.
 - Control de stock e inventario.
-- Manejo de imágenes de producto (carga de archivo o por URL).
-- Registro de consultas/contacto de clientes.
 - Generación de reportes estadísticos de ventas para la toma de decisiones.
 
 ## ¿Qué funciones no cubrirá el sistema?
