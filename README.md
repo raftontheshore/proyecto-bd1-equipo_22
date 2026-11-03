@@ -64,7 +64,7 @@ El detalle completo está en [`alcance.md`](docs/etapa-01/alcance.md).
 
 La base de datos `RetroGames` (SQL Server) está normalizada hasta 3FN y se compone de 8 tablas.
 
-![Diagrama Entidad-Relación](docs/etapa-02/der/der.png)
+![Diagrama Entidad-Relación](modelos/der/DER.png)
 
 | Tabla | Descripción |
 | :--- | :--- |
@@ -120,7 +120,7 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 
 | Documento | Descripción |
 | :--- | :--- |
-| [`der.png`](docs/etapa-02/der/der.png) | Diagrama Entidad-Relación. |
+| [`DER.png`](modelos/der/DER.png) | Diagrama Entidad-Relación. |
 | [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) | Entidades, atributos, claves y cardinalidades del modelo relacional. |
 | [`normalizacion.md`](docs/etapa-02/normalizacion.md) | Proceso de normalización hasta 3FN. |
 | [`decisiones-diseno.md`](docs/etapa-02/decisiones-diseno.md) | Decisiones tomadas durante el diseño del modelo. |
@@ -178,8 +178,6 @@ proyecto-bd1-equipo_22/
 │   │   └── decisiones-diseno.md
 │   │
 │   ├── etapa-02/
-│   │   ├── der/
-│   │   │   └── der.png
 │   │   ├── modelo-relacional.md
 │   │   ├── normalizacion.md
 │   │   └── decisiones-diseno.md
@@ -216,6 +214,10 @@ proyecto-bd1-equipo_22/
 │           ├── optimizacion_investigacion.md
 │           ├── optimizacion_scripts.sql
 │           └── evidencias/
+│
+├── modelos/
+│   └── der/
+│       └── DER.png
 │
 ├── sql/
 │   │
