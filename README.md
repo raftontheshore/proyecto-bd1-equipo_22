@@ -144,7 +144,7 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | Documento | Descripción |
 | :--- | :--- |
 | [`casos-uso.md`](docs/etapa-04/casos-uso.md) | Casos de uso que dan origen a las consultas. |
-| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`Comprobante_Ventas.sql`](sql/consultas/Comprobante_Ventas.sql). |
+| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`Comprobante_Ventas.sql`](sql/consultas/comprobante_ventas.sql). |
 | [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe-ventas.sql`](sql/consultas/informe-ventas.sql). |
 | [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Clientes de alto valor: gasto superior al promedio, con `JOIN` de 7 tablas, `HAVING` y subconsulta. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
 
@@ -228,7 +228,7 @@ proyecto-bd1-equipo_22/
 │   │   └── datos_prueba.sql
 │   │
 │   └── consultas/
-│       ├── Comprobante_Ventas.sql
+│       ├── comprobante_ventas.sql
 │       ├── informe-ventas.sql
 │       └── consulta_avanzada.sql
 │
