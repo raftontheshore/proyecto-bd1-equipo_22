@@ -77,7 +77,7 @@ La base de datos `RetroGames` (SQL Server) está normalizada hasta 3FN y se comp
 | `venta_detalle` | Ítems de cada venta, con el precio unitario vigente al momento de la compra. |
 | `pago` | Pago asociado a una venta (como máximo uno por venta). |
 
-Más detalle en [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) y [`normalizacion.md`](docs/etapa-02/normalizacion.md).
+Más detalle en [`modelo_relacional.md`](docs/etapa-02/modelo_relacional.md) y [`normalizacion.md`](docs/etapa-02/normalizacion.md).
 
 ---
 
@@ -95,7 +95,7 @@ Más detalle en [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) y [
 - **Protección del historial:** no se eliminan ventas con pago, ni usuarios, direcciones o productos con ventas asociadas.
 - **Validez de importes:** precios y cantidades positivos; el total es la suma de los subtotales.
 
-La definición completa se encuentra en [`reglas-negocio.md`](docs/etapa-01/reglas-negocio.md).
+La definición completa se encuentra en [`reglas_negocio.md`](docs/etapa-01/reglas_negocio.md).
 
 ---
 
@@ -109,10 +109,10 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 
 | Documento | Descripción |
 | :--- | :--- |
-| [`descripcion-caso.md`](docs/etapa-01/descripcion-caso.md) | Organización, problemática y alcance funcional resumido. |
+| [`descripcion_caso.md`](docs/etapa-01/descripcion_caso.md) | Organización, problemática y alcance funcional resumido. |
 | [`alcance.md`](docs/etapa-01/alcance.md) | Funciones incluidas y excluidas del sistema. |
-| [`reglas-negocio.md`](docs/etapa-01/reglas-negocio.md) | Reglas que rigen el funcionamiento del sistema. |
-| [`decisiones-diseno.md`](docs/etapa-01/decisiones-diseno.md) | Decisiones y justificaciones del caso de negocio. |
+| [`reglas_negocio.md`](docs/etapa-01/reglas_negocio.md) | Reglas que rigen el funcionamiento del sistema. |
+| [`decisiones_diseno.md`](docs/etapa-01/decisiones_diseno.md) | Decisiones y justificaciones del caso de negocio. |
 
 ### Etapa 02 — Modelado conceptual y lógico
 
@@ -121,9 +121,9 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | Documento | Descripción |
 | :--- | :--- |
 | [`DER.png`](modelos/der/DER.png) | Diagrama Entidad-Relación. |
-| [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) | Entidades, atributos, claves y cardinalidades del modelo relacional. |
+| [`modelo_relacional.md`](docs/etapa-02/modelo_relacional.md) | Entidades, atributos, claves y cardinalidades del modelo relacional. |
 | [`normalizacion.md`](docs/etapa-02/normalizacion.md) | Proceso de normalización hasta 3FN. |
-| [`decisiones-diseño.md`](docs/etapa-02/decisiones-dise%C3%B1o.md) | Decisiones tomadas durante el diseño del modelo. |
+| [`decisiones_diseno.md`](docs/etapa-02/decisiones_diseno.md) | Decisiones tomadas durante el diseño del modelo. |
 
 ### Etapa 03 — Implementación física y validación
 
@@ -132,8 +132,8 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | Documento | Descripción |
 | :--- | :--- |
 | [`implementacion.md`](docs/etapa-03/implementacion.md) | Decisiones técnicas de la implementación en SQL Server. |
-| [`restricciones-integridad.md`](docs/etapa-03/restricciones-integridad.md) | Restricciones y mecanismos de integridad de la base de datos. |
-| [`pruebas-validacion.md`](docs/etapa-03/pruebas-validacion.md) | Pruebas y validaciones realizadas sobre la implementación. |
+| [`restricciones_integridad.md`](docs/etapa-03/restricciones_integridad.md) | Restricciones y mecanismos de integridad de la base de datos. |
+| [`pruebas_validacion.md`](docs/etapa-03/pruebas_validacion.md) | Pruebas y validaciones realizadas sobre la implementación. |
 | [`crear_bd.sql`](sql/ddl/crear_bd.sql) | Script DDL: crea la base de datos, las tablas, restricciones e índices. |
 | [`datos_prueba.sql`](sql/dml/datos_prueba.sql) | Script DML: carga de datos de prueba. |
 
@@ -143,10 +143,10 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 
 | Documento | Descripción |
 | :--- | :--- |
-| [`casos-uso.md`](docs/etapa-04/casos-uso.md) | Casos de uso que dan origen a las consultas. |
-| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`Comprobante_Ventas.sql`](sql/consultas/comprobante_ventas.sql). |
-| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe-ventas.sql`](sql/consultas/informe-ventas.sql). |
-| [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Clientes de alto valor: gasto superior al promedio, con `JOIN` de 7 tablas, `HAVING` y subconsulta. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
+| [`casos_uso.md`](docs/etapa-04/casos_uso.md) | Casos de uso que dan origen a las consultas. |
+| [`comprobante_venta.md`](docs/etapa-04/comprobante_venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`comprobante_ventas.sql`](sql/consultas/comprobante_ventas.sql). |
+| [`informe_ventas.md`](docs/etapa-04/informe_ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe_ventas.sql`](sql/consultas/informe_ventas.sql). |
+| [`consulta_avanzada.md`](docs/etapa-04/consulta_avanzada.md) | Clientes de alto valor: gasto superior al promedio, con `JOIN` de 7 tablas, `HAVING` y subconsulta. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
 
 ### Etapa 05 — Temas técnicos
 
@@ -172,26 +172,26 @@ proyecto-bd1-equipo_22/
 ├── docs/
 │   │
 │   ├── etapa-01/
-│   │   ├── descripcion-caso.md
+│   │   ├── descripcion_caso.md
 │   │   ├── alcance.md
-│   │   ├── reglas-negocio.md
-│   │   └── decisiones-diseno.md
+│   │   ├── reglas_negocio.md
+│   │   └── decisiones_diseno.md
 │   │
 │   ├── etapa-02/
-│   │   ├── modelo-relacional.md
+│   │   ├── modelo_relacional.md
 │   │   ├── normalizacion.md
-│   │   └── decisiones-diseño.md
+│   │   └── decisiones_diseno.md
 │   │
 │   ├── etapa-03/
 │   │   ├── implementacion.md
-│   │   ├── restricciones-integridad.md
-│   │   └── pruebas-validacion.md
+│   │   ├── restricciones_integridad.md
+│   │   └── pruebas_validacion.md
 │   │
 │   ├── etapa-04/
-│   │   ├── casos-uso.md
-│   │   ├── comprobante-venta.md
-│   │   ├── informe-ventas.md
-│   │   └── consulta-avanzada.md
+│   │   ├── casos_uso.md
+│   │   ├── comprobante_venta.md
+│   │   ├── informe_ventas.md
+│   │   └── consulta_avanzada.md
 │   │
 │   └── etapa-05/
 │       ├── procedimientos_funciones/
@@ -229,7 +229,7 @@ proyecto-bd1-equipo_22/
 │   │
 │   └── consultas/
 │       ├── comprobante_ventas.sql
-│       ├── informe-ventas.sql
+│       ├── informe_ventas.sql
 │       └── consulta_avanzada.sql
 │
 └── README.md
