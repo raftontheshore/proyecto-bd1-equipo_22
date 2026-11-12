@@ -123,7 +123,7 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | [`DER.png`](modelos/der/DER.png) | Diagrama Entidad-Relación. |
 | [`modelo-relacional.md`](docs/etapa-02/modelo-relacional.md) | Entidades, atributos, claves y cardinalidades del modelo relacional. |
 | [`normalizacion.md`](docs/etapa-02/normalizacion.md) | Proceso de normalización hasta 3FN. |
-| [`decisiones-diseno.md`](docs/etapa-02/decisiones-diseno.md) | Decisiones tomadas durante el diseño del modelo. |
+| [`decisiones-diseño.md`](docs/etapa-02/decisiones-dise%C3%B1o.md) | Decisiones tomadas durante el diseño del modelo. |
 
 ### Etapa 03 — Implementación física y validación
 
@@ -144,8 +144,8 @@ La documentación está organizada en la carpeta [`docs/`](docs/), separada por 
 | Documento | Descripción |
 | :--- | :--- |
 | [`casos-uso.md`](docs/etapa-04/casos-uso.md) | Casos de uso que dan origen a las consultas. |
-| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`comprobante_venta.sql`](sql/consultas/comprobante_venta.sql). |
-| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe_ventas.sql`](sql/consultas/informe_ventas.sql). |
+| [`comprobante-venta.md`](docs/etapa-04/comprobante-venta.md) | Comprobante de una venta: encabezado y detalle, con subtotales por renglón y total. Script: [`Comprobante_Ventas.sql`](sql/consultas/Comprobante_Ventas.sql). |
+| [`informe-ventas.md`](docs/etapa-04/informe-ventas.md) | Informe agregado de ventas con `GROUP BY`, `SUM` y `COUNT`. Script: [`informe-ventas.sql`](sql/consultas/informe-ventas.sql). |
 | [`consulta-avanzada.md`](docs/etapa-04/consulta-avanzada.md) | Clientes de alto valor: gasto superior al promedio, con `JOIN` de 7 tablas, `HAVING` y subconsulta. Script: [`consulta_avanzada.sql`](sql/consultas/consulta_avanzada.sql). |
 
 ### Etapa 05 — Temas técnicos
@@ -156,11 +156,11 @@ Cada tema tiene su carpeta con la investigación, el script de demostración y l
 
 | Tema | Qué se implementa | Investigación | Scripts | Evidencias |
 | :--- | :--- | :--- | :--- | :--- |
-| Procedimientos y funciones | Funciones y procedimientos de catálogo y de registro de ventas. | [`funciones_investigacion.md`](docs/etapa-05/procedimientos_funciones/funciones_investigacion.md) | [`funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/funciones_scripts.sql) | [`evidencias/`](docs/etapa-05/procedimientos_funciones/evidencias/) |
+| Procedimientos y funciones | Funciones y procedimientos de catálogo y de registro de ventas. | [`procedimientos_funciones_investigacion.md`](docs/etapa-05/procedimientos_funciones/procedimientos_funciones_investigacion.md) | [`procedimientos_funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/procedimientos_funciones_scripts.sql) | [`evidencias/`](docs/etapa-05/procedimientos_funciones/evidencias/) |
 | Transacciones | Registro de venta atómico (`COMMIT` / `ROLLBACK`) y transacciones anidadas. | [`transacciones_investigacion.md`](docs/etapa-05/transacciones/transacciones_investigacion.md) | [`transacciones_scripts.sql`](docs/etapa-05/transacciones/transacciones_scripts.sql) | [`evidencias/`](docs/etapa-05/transacciones/evidencias/) |
 | Triggers de auditoría | Auditoría de `UPDATE` y `DELETE` sobre `productos` y bloqueo de `DELETE` sobre `pago`. | [`triggers_investigacion.md`](docs/etapa-05/triggers_auditoria/triggers_investigacion.md) | [`triggers_scripts.sql`](docs/etapa-05/triggers_auditoria/triggers_scripts.sql) | [`evidencias/`](docs/etapa-05/triggers_auditoria/evidencias/) |
 | Seguridad | Logins, usuarios y roles con permisos mínimos. | [`seguridad_investigacion.md`](docs/etapa-05/seguridad/seguridad_investigacion.md) | [`seguridad_scripts.sql`](docs/etapa-05/seguridad/seguridad_scripts.sql) | [`evidencias/`](docs/etapa-05/seguridad/evidencias/) |
-| Optimización | Experimento de índices con 1.000.000 de filas e índices permanentes del esquema. | [`optimizacion_investigacion.md`](docs/etapa-05/optimizacion/optimizacion_investigacion.md) | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion/optimizacion_scripts.sql) | [`evidencias/`](docs/etapa-05/optimizacion/evidencias/) |
+| Optimización | Experimento de índices con 1.000.000 de filas e índices permanentes del esquema. | [`optimizacion_investigacion.md`](docs/etapa-05/optimizacion_consultas/optimizacion_investigacion.md) | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion_consultas/optimizacion_scripts.sql) | [`evidencias/`](docs/etapa-05/optimizacion_consultas/evidencias/) |
 
 ---
 
@@ -180,7 +180,7 @@ proyecto-bd1-equipo_22/
 │   ├── etapa-02/
 │   │   ├── modelo-relacional.md
 │   │   ├── normalizacion.md
-│   │   └── decisiones-diseno.md
+│   │   └── decisiones-diseño.md
 │   │
 │   ├── etapa-03/
 │   │   ├── implementacion.md
@@ -195,8 +195,8 @@ proyecto-bd1-equipo_22/
 │   │
 │   └── etapa-05/
 │       ├── procedimientos_funciones/
-│       │   ├── funciones_investigacion.md
-│       │   ├── funciones_scripts.sql
+│       │   ├── procedimientos_funciones_investigacion.md
+│       │   ├── procedimientos_funciones_scripts.sql
 │       │   └── evidencias/
 │       ├── transacciones/
 │       │   ├── transacciones_investigacion.md
@@ -210,7 +210,7 @@ proyecto-bd1-equipo_22/
 │       │   ├── seguridad_investigacion.md
 │       │   ├── seguridad_scripts.sql
 │       │   └── evidencias/
-│       └── optimizacion/
+│       └── optimizacion_consultas/
 │           ├── optimizacion_investigacion.md
 │           ├── optimizacion_scripts.sql
 │           └── evidencias/
@@ -228,8 +228,8 @@ proyecto-bd1-equipo_22/
 │   │   └── datos_prueba.sql
 │   │
 │   └── consultas/
-│       ├── comprobante_venta.sql
-│       ├── informe_ventas.sql
+│       ├── Comprobante_Ventas.sql
+│       ├── informe-ventas.sql
 │       └── consulta_avanzada.sql
 │
 └── README.md
@@ -247,10 +247,10 @@ Requiere **SQL Server 2016 SP1 o superior** (por `CREATE OR ALTER` y `DROP ... I
 | 2 | [`sql/dml/datos_prueba.sql`](sql/dml/datos_prueba.sql) | Carga los datos de prueba. |
 | 3 | [`sql/consultas/`](sql/consultas/) | Consultas de la Etapa 04 (comprobante, informe y consulta avanzada). |
 | 4 | [`triggers_scripts.sql`](docs/etapa-05/triggers_auditoria/triggers_scripts.sql) | Crea la tabla de auditoría y los triggers. Conviene ejecutarlo sobre los datos recién cargados, porque sus resultados esperados parten de ellos. |
-| 5 | [`funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/funciones_scripts.sql) | Crea funciones y procedimientos, entre ellos `sp_InsertarProducto`. |
+| 5 | [`procedimientos_funciones_scripts.sql`](docs/etapa-05/procedimientos_funciones/procedimientos_funciones_scripts.sql) | Crea funciones y procedimientos, entre ellos `sp_InsertarProducto`. |
 | 6 | [`transacciones_scripts.sql`](docs/etapa-05/transacciones/transacciones_scripts.sql) | Crea `sp_RegistrarVentaTransaccional` y ejecuta las pruebas. |
 | 7 | [`seguridad_scripts.sql`](docs/etapa-05/seguridad/seguridad_scripts.sql) | Requiere el paso 5 (permiso de ejecución sobre `sp_InsertarProducto`) y el motor en modo mixto. |
-| 8 | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion/optimizacion_scripts.sql) | Ejecutar al final: usa la tabla de auditoría del paso 4 y redefine con cobertura los índices creados en el paso 1. |
+| 8 | [`optimizacion_scripts.sql`](docs/etapa-05/optimizacion_consultas/optimizacion_scripts.sql) | Ejecutar al final: usa la tabla de auditoría del paso 4 y redefine con cobertura los índices creados en el paso 1. |
 
 > **Atención:**
 > - Los scripts borran o modifican datos y están pensados para un entorno de pruebas. Para volver al estado inicial, repetir los pasos 1 y 2.

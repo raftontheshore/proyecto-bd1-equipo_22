@@ -6,7 +6,7 @@ Este documento detalla todos los casos de uso previstos para el sistema **Retro 
 
 ### CU-01: Exploración y Filtrado del Catálogo
 *   **Actor:** Cliente (registrado o visitante).
-*   **Descripción:** El usuario puede navegar por la tienda en línea, visualizar los productos con sus imágenes (URL o archivo), precio original, descuentos y estado de conservación (Nuevo, Usado, En Caja).
+*   **Descripción:** El usuario puede navegar por la tienda en línea, ver precio original, descuentos y estado de conservación (Nuevo, Usado, En Caja).
 *   **Reglas asociadas:** Solo se muestran productos activos y con stock disponible.
 
 ### CU-02: Gestión del Carrito de Compras

@@ -2,6 +2,7 @@
    RETRO GAMES - Etapa III: Implementación Física
    Script DDL (SQL Server / Transact-SQL)
    Origen: modelo-relacional.md (8 tablas, 3FN)
+   Re-ejecutable: elimina y vuelve a crear las 8 tablas (sección 0b).
    ===================================================================== */
 
 -- ---------------------------------------------------------------------
@@ -12,6 +13,26 @@ IF DB_ID('RetroGames') IS NULL
 GO
 
 USE RetroGames;
+GO
+
+-- ---------------------------------------------------------------------
+-- 0b. Limpieza previa: permite volver a ejecutar el script desde cero
+--     (requiere SQL Server 2016 o superior por DROP ... IF EXISTS).
+--     ATENCIÓN: borra las 8 tablas y TODOS sus datos. Se eliminan en
+--     orden inverso a las claves foráneas (primero las tablas hijas).
+--     Los triggers definidos sobre estas tablas (por ejemplo el de
+--     bloqueo de DELETE sobre pago) se eliminan junto con ellas, por lo
+--     que después de este script hay que volver a ejecutar el script de
+--     triggers.
+-- ---------------------------------------------------------------------
+DROP TABLE IF EXISTS dbo.pago;
+DROP TABLE IF EXISTS dbo.venta_detalle;
+DROP TABLE IF EXISTS dbo.venta_cabecera;
+DROP TABLE IF EXISTS dbo.usuario;
+DROP TABLE IF EXISTS dbo.productos;
+DROP TABLE IF EXISTS dbo.metodo_pago;
+DROP TABLE IF EXISTS dbo.direccion;
+DROP TABLE IF EXISTS dbo.categoria;
 GO
 
 -- ---------------------------------------------------------------------

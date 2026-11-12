@@ -205,14 +205,14 @@ GO
 -- PRUEBA 5: la venta mantiene la bandera stock_bajo (RN-07)
 -- Se prepara el producto 2 con stock 3 y umbral 3, y se vende 1 unidad:
 -- el stock resultante (2) queda por debajo del umbral, por lo que stock_bajo
--- pasa de 0 a 1. ...
-    UPDATE dbo.productos
-    SET stock = 3, stock_minimo = 3, stock_bajo = 0
-    WHERE id_productos = 2;
+-- pasa de 0 a 1. Todo ocurre dentro de una transacción externa que se revierte
+-- al final, de modo que los datos de prueba quedan intactos.
+PRINT '--- PRUEBA 5: BANDERA STOCK_BAJO ---';
+DECLARE @id_venta INT;
 
 BEGIN TRANSACTION;
     UPDATE dbo.productos
-    SET stock = 3, stock_minimo = 2, stock_bajo = 0
+    SET stock = 3, stock_minimo = 3, stock_bajo = 0
     WHERE id_productos = 2;
 
     SELECT 'Antes de la venta' AS momento, stock, stock_minimo, stock_bajo
