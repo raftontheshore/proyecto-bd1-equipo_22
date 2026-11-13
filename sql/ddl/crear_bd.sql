@@ -69,8 +69,8 @@ CREATE TABLE dbo.metodo_pago (
     id_metodo_pago  INT IDENTITY(1,1) NOT NULL,
     nombre          VARCHAR(50)       NOT NULL,
     descripcion     VARCHAR(255)      NULL,
-    activo          BIT               NOT NULL      -- 1 = habilitado / autorizado
-        CONSTRAINT DF_metodo_pago_activo DEFAULT 1,
+    activo          BIT               NOT NULL      -- 0 = deshabilitado / espera autorización
+        CONSTRAINT DF_metodo_pago_activo DEFAULT 0,
 
     CONSTRAINT PK_metodo_pago PRIMARY KEY (id_metodo_pago),
     CONSTRAINT UQ_metodo_pago_nombre UNIQUE (nombre)

@@ -45,9 +45,9 @@ Se aplican restricciones específicas a nivel de columna para asegurar que los d
 **Tabla `venta_cabecera`:**
 *   **Fecha:** Si no se envía fecha, por defecto se registra el momento exacto de la inserción (`GETDATE()`) y no admite nulos.
 *   **Estado:** Es obligatorio, su valor por defecto es `'PENDIENTE'`, y solo admite los estados: `'PENDIENTE'`, `'PAGADA'`, `'ENVIADA'`, `'ENTREGADA'`, `'CANCELADA'` o `'CARRITO'`. `ENVIADA` y `ENTREGADA` son estados administrativos de la venta; el sistema no gestiona logística ni seguimiento de pedidos.
-*   **Total:** Es obligatorio y debe ser mayor a 0.
+*   **Total:** Es obligatorio y debe ser mayor o igual a 0.
 *   **Usuario y dirección:** `id_usuario` e `id_direccion` son obligatorios (no se admiten ventas anónimas ni sin dirección de entrega).
-*   **Carrito:** como `total > 0` y `id_direccion` es obligatoria, una venta en estado `CARRITO` debe crearse con al menos un ítem y con dirección de entrega.
+*   **Carrito:** como `id_direccion` es obligatoria, una venta en estado `CARRITO` debe crearse con dirección de entrega. El `total` admite 0, por lo que el carrito puede crearse vacío y sus ítems agregarse después (por ejemplo con `sp_AgregarDetalleVenta`, que suma cada subtotal al total de la cabecera).
 
 **Tabla `venta_detalle`:**
 *   La `cantidad` y el `precio_unitario` son obligatorios y deben ser mayores a 0.
@@ -58,6 +58,3 @@ Se aplican restricciones específicas a nivel de columna para asegurar que los d
 *   **Unicidad:** La columna `id_venta_cabecera` es `UNIQUE`, garantizando como máximo un pago por venta (cardinalidad 0..1: las ventas `PENDIENTE` o `CARRITO` todavía no tienen pago).
 *   **Fecha y Monto:** La `fecha_pago` asume por defecto la fecha actual (`GETDATE()`) y el `monto` debe ser mayor a 0. Ninguno admite valores nulos.
 *   `id_venta_cabecera` e `id_metodo_pago` son obligatorias.
-
-## 4. Índices
-Además de los índices implícitos de las claves primarias y las restricciones `UNIQUE`, se crearon índices no agrupados sobre las claves foráneas: `IX_productos_categoria`, `IX_usuario_direccion`, `IX_venta_cabecera_usuario`, `IX_venta_cabecera_direccion`, `IX_venta_detalle_productos`, `IX_venta_detalle_cabecera` e `IX_pago_metodo_pago`.

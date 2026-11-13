@@ -63,13 +63,13 @@ Se implementaron restricciones `CHECK` para materializar reglas de negocio (RN) 
 
 Para agilizar los procesos de inserción (`INSERT`) y asegurar el cumplimiento de valores por defecto en la lógica de negocio, se utilizaron restricciones `DEFAULT`:
 
-* **Regla de Negocio:** El umbral de reposición (RN-07) y los métodos de pago autorizados (RN-10) deben autoconfigurarse.
+* **Regla de Negocio:** El umbral de reposición (RN-07) debe autoconfigurarse y los métodos de pago nuevos deben nacer sin autorización (RN-10).
 
 
-* **Implementación:** `DF_productos_stock_minimo DEFAULT 5` y `DF_metodo_pago_activo DEFAULT 1`.
+* **Implementación:** `DF_productos_stock_minimo DEFAULT 5` y `DF_metodo_pago_activo DEFAULT 0`.
 
 
-* **Justificación:** Permite que la capa de aplicación omita estos campos en la inserción si se trata de un flujo estándar. El motor asume la responsabilidad de establecer el stock mínimo en 5 y habilitar el método de pago por defecto.
+* **Justificación:** Permite que la capa de aplicación omita estos campos en la inserción si se trata de un flujo estándar. El motor asume la responsabilidad de establecer el stock mínimo en 5 y de dejar el método de pago deshabilitado: un método nuevo solo puede usarse cuando la administración lo habilita explícitamente (`activo = 1`).
 
 
 
@@ -108,4 +108,4 @@ El diseño de las restricciones de integridad referencial contempla la protecci�
 * **Implementación:** `CONSTRAINT UQ_pago_venta UNIQUE (id_venta_cabecera)` en la tabla `pago`.
 
 
-* **Justificación:** Al aplicar unicidad sobre la clave foránea en la tabla secundaria, el motor impide físicamente que se ingresen múltiples registros de pago vinculados a una misma cabecera de venta, asegurando a nivel de esquema la cardinalidad 1..1 planificada en el diseño conceptual.
+* **Justificación:** Al aplicar unicidad sobre la clave foránea en la tabla secundaria, el motor impide físicamente que se ingresen múltiples registros de pago vinculados a una misma cabecera de venta, asegurando a nivel de esquema que una venta tenga como máximo un pago (cardinalidad 0..1: las ventas `CARRITO` y `PENDIENTE` todavía no tienen pago).
