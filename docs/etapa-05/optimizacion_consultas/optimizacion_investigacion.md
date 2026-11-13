@@ -60,7 +60,7 @@ Finalmente, se definen los **índices permanentes** de las tablas reales. SQL Se
 Criterios aplicados: se evitan índices sobre columnas de poca selectividad (como las de tipo `BIT`: `activo`, `stock_bajo`) y se limita la cantidad de índices y de columnas incluidas, porque cada venta inserta en tres tablas y actualiza `productos`, por lo que cada índice adicional encarece la escritura.
 
 ## 5. Script de demostración y resultados obtenidos
-El código físico del experimento y de los índices permanentes se encuentra en el archivo `scripts.sql` adjunto en este directorio. Requiere haber ejecutado previamente `crear_bd.sql`. El script se organiza en 10 partes:
+El código físico del experimento y de los índices permanentes se encuentra en el archivo `optimizacion_scripts.sql` adjunto en este directorio. Requiere haber ejecutado previamente `crear_bd.sql`. El script se organiza en 10 partes:
 
 | Parte | Contenido |
 | :--- | :--- |
@@ -79,26 +79,27 @@ Los valores se obtienen de la pestaña Messages (`STATISTICS TIME` e `IO`) y del
 
 | Escenario | CPU (ms) | Tiempo total (ms) | Lecturas lógicas | Operación principal |
 | :--- | :--- | :--- | :--- | :--- |
-| Sin índice | *completar* | *completar* | *completar* | Table Scan |
-| Índice agrupado sobre la fecha | *completar* | *completar* | *completar* | Clustered Index Seek |
-| Índice con cobertura | *completar* | *completar* | *completar* | Index Seek |
+| Sin índice | 94 | 676 | 4082 | Table Scan |
+| Índice agrupado sobre la fecha | 15 | 407 | 256 | Clustered Index Seek |
+| Índice con cobertura | 15 | 512 | 164 | Index Seek |
+
+Reducción respecto al escenario sin índice: con el índice agrupado, la CPU baja un 84 %, el tiempo total un 40 % y las lecturas lógicas un 94 %; con el índice con cobertura, la CPU baja un 84 %, el tiempo total un 24 % y las lecturas lógicas un 96 %.
 
 ### Costo de escritura y espacio
 
 | Medición | Valor |
 | :--- | :--- |
-| Inserción de 100.000 filas **con** índice (CPU / tiempo total / lecturas) | *completar* |
-| Inserción de 100.000 filas **sin** índice (CPU / tiempo total / lecturas) | *completar* |
-| Espacio de la tabla (heap) | *completar* MB |
-| Espacio del índice con cobertura | *completar* MB |
+| Inserción de 100.000 filas **con** índice (CPU / tiempo total / lecturas) | 812 ms / 1657 ms / 440.872 lecturas lógicas |
+| Inserción de 100.000 filas **sin** índice (CPU / tiempo total / lecturas) | 547 ms / 1016 ms / 100.408 lecturas lógicas |
+| Espacio de la tabla (heap) | 35,20 MB |
+| Espacio del índice con cobertura | 25,25 MB |
 
 Los resultados visuales de la ejecución de estas pruebas en SQL Server Management Studio (mensajes de estadísticas y planes de ejecución) se documentan a través de capturas de pantalla, las cuales están alojadas dentro de la subcarpeta `evidencias/`.
 
 ## 6. Conclusiones
-*(Ajustar con los valores medidos.)*
-* **Sin índice:** la consulta recorre las 1.000.000 de filas (*Table Scan*) para devolver solo las de un trimestre; el trabajo es proporcional al tamaño de la tabla, no al de la respuesta.
-* **Índice agrupado:** al ordenar físicamente la tabla por fecha, el motor salta al rango buscado y lee un bloque contiguo (*Clustered Index Seek*), con una reducción significativa de las lecturas lógicas.
-* **Índice con cobertura:** al contener la columna de filtro y la devuelta, la consulta se resuelve solo con el índice y requiere aún menos lecturas, porque no accede a la tabla.
-* **El costo existe:** la inserción con índice es más cara que sin él y los índices ocupan espacio adicional. Por eso en las tablas reales se indexan solo las claves foráneas y las columnas de filtro de las consultas frecuentes, y no se indexan columnas de poca selectividad.
-* **Dependencia del volumen:** con los pocos datos de prueba de las tablas reales, el optimizador puede preferir un escaneo; el beneficio de los índices permanentes se manifiesta cuando crece la cantidad de ventas.
+* **Sin índice:** la consulta recorre las 1.000.000 de filas (*Table Scan*) para devolver solo las de un trimestre; el trabajo es proporcional al tamaño de la tabla, no al de la respuesta. Se midieron 4082 lecturas lógicas, 94 ms de CPU y 676 ms de tiempo total.
+* **Índice agrupado:** al ordenar físicamente la tabla por fecha, el motor salta al rango buscado y lee un bloque contiguo (*Clustered Index Seek*), con una reducción significativa de las lecturas lógicas: de 4082 a 256 (−94 %), con 15 ms de CPU y 407 ms de tiempo total.
+* **Índice con cobertura:** al contener la columna de filtro y la devuelta, la consulta se resuelve solo con el índice y requiere aún menos lecturas (164, un 96 % menos que sin índice), porque no accede a la tabla. Su tiempo total (512 ms) resultó algo mayor que el del índice agrupado (407 ms) pese a leer menos páginas: con la caché vacía influyen las lecturas físicas y la variación entre ejecuciones, por eso la métrica más confiable para comparar es la de lecturas lógicas.
+* **El costo existe:** la inserción de 100.000 filas con índice requirió 440.872 lecturas lógicas, 812 ms de CPU y 1657 ms, frente a 100.408 lecturas, 547 ms y 1016 ms sin índice (unas 4,4 veces más lecturas y un 63 % más de tiempo). Además, el índice con cobertura ocupa 25,25 MB, cerca del 72 % de los 35,20 MB de la tabla. Por eso en las tablas reales se indexan solo las claves foráneas y las columnas de filtro de las consultas frecuentes, y no se indexan columnas de poca selectividad.
+* **Dependencia del volumen:** con los pocos datos de prueba de las tablas reales, el optimizador puede preferir un escaneo; el beneficio de los índices permanentes se manifiesta cuando crece la cantidad de ventas. En la verificación (Parte 10) se confirmó la creación de los 9 índices, de 0,016 MB cada uno, y la consulta de prueba sobre `venta_cabecera` devolvió solo 2 filas.
 * **Diseño dirigido por las consultas:** un índice solo ayuda a las consultas que lo usan. La consulta del escenario 3 no pide `id_venta` justamente para poder ser cubierta por el índice; si la pidiera, el motor tendría que hacer un *Lookup* por cada fila.
